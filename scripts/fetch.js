@@ -12,12 +12,26 @@ fetch(LINK)
     })
     .then(data => {
         console.log('Dati del meteo:', data);
+        updateDay(data);
         updateTime(data);
+        updateTemp(data);
         // Puoi usare i dati qui per aggiornare l'interfaccia utente o altro
     })
 
+function updateDay(data) {
+    const days = document.getElementsByClassName("day");
+    for(let i = 0; i < days.length; i++)
+        days[i].innerText = data.daily.time[i].slice(-2) + "/" + data.daily.time[i].slice(5, 7);
+}
+
 function updateTime(data) {
-    const time = data.daily.time[0];
-    console.log("geouwiuwbgwariiyrihygrihgryggbryebygarigygrhrhagrihgarih");
-    console.log(time);
+    const hours = document.getElementsByClassName("time");
+    for(let i = 0; i < hours.length; i++)
+        hours[i].innerText = data.hourly.time[i].slice(-5);
+}
+
+function updateTemp(data) {
+    const temps = document.getElementsByClassName("temp");
+    for(let i = 0; i < temps.length; i++)
+        temps[i].innerText = Math.round(data.hourly.temperature_2m[i]) + "°C";
 }

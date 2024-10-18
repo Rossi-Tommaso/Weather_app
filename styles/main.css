@@ -59,9 +59,11 @@ body {
 /* Sezione delle ore */
 .hours {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 colonne per 24 ore */
-    gap: 10px;
+    grid-template-rows: repeat(24, 1fr);
+    overflow-y: auto;
+    gap: 2%;
     height: 75%;
+    padding: 0 3%;
 }
 
 .hour {
@@ -70,7 +72,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: center;
     align-items: center;
     font-size: 1.1rem;
     transition: all 0.3s ease;
@@ -79,4 +80,15 @@ body {
 .hour:hover {
     background-color: #f0f8ff;
     transform: scale(1.05);
+}
+
+.hour > div {
+    width: 100%;
+    height: 100%;
+    /*border: 1px solid black;*/
+}
+
+.temp {
+    display: flex;
+    justify-content: flex-end;
 }
