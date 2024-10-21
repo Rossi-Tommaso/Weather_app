@@ -15,7 +15,7 @@ function cetch() {
             updateDay(data);
             updateTime(data);
             updateTemp(data);
-            // Puoi usare i dati qui per aggiornare l'interfaccia utente o altro
+            updateWeather(data);
         })
 
     function updateDay(data) {
@@ -35,6 +35,16 @@ function cetch() {
         for(let i = daynum; i < (temps.length + daynum); i++)
             temps[i - daynum].innerText = Math.round(data.hourly.temperature_2m[i]) + "°C";
     }
+
+    function updateWeather(data) {
+        const weatherCodeIcons = document.getElementsByClassName('weathercode');
+        let weather_code = data.hourly.weather_code; 
+        for (let i = daynum; i < (weatherCodeIcons.length + daynum); i++) {
+            let code = weather_code[i]; 
+            weatherCodeIcons[i - daynum].innerHTML = `<img src="${weatherConditions[code].night.image}">`;
+        }
+    }
+    
 }
 
 cetch();
