@@ -38,10 +38,20 @@ function cetch() {
 
     function updateWeather(data) {
         const weatherCodeIcons = document.getElementsByClassName('weathercode');
-        let weather_code = data.hourly.weather_code; 
+        let weather_code = data.hourly.weather_code;
         for (let i = daynum; i < (weatherCodeIcons.length + daynum); i++) {
-            let code = weather_code[i]; 
-            weatherCodeIcons[i - daynum].innerHTML = `<img src="${weatherConditions[code].night.image}">`;
+            weatherCodeIcons.innerText = data.hourly.weather_code[i];
+            let code = weather_code[i];
+            let day = wc[code].day.image;
+            let night = wc[code].night.image;
+            let icon;
+
+            if(data.hourly.time[i].slice(-5, -3) > 22 || data.hourly.time[i].slice(-5, -3) < 6)
+                icon = night;
+            else
+                icon = day;
+
+            weatherCodeIcons[i - daynum].innerHTML = `<img src = ${icon}>`;
         }
     }
     
