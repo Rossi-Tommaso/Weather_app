@@ -104,3 +104,11 @@ body {
     width: 20%;
     margin-right: 5%;
 }
+
+input {
+    width: 20%;
+}
+
+button {
+    width: 20%;
+}

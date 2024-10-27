@@ -1,10 +1,7 @@
-const LATITUDE =  45.0705;
-const LONGITUDE = 7.6868;
-
-// &current=temperature_2m,relative_humidity_2m,precipitation,weather_code
-const LINK = `https://api.open-meteo.com/v1/forecast?latitude=${LATITUDE}&longitude=${LONGITUDE}&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Europe%2FBerlin`;
-
-function cetch() {
+function cetch(latitude, longitude) {
+    // &current=temperature_2m,relative_humidity_2m,precipitation,weather_code
+    const LINK = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Europe%2FBerlin`;
+    
     fetch(LINK)
         .then(response => {
             if (!response.ok) {
@@ -88,5 +85,3 @@ function cetch() {
         }
     }
 }
-
-cetch();

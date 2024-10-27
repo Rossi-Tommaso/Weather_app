@@ -10,6 +10,10 @@
 </head>
 <body>
     <div class="container">
+        <input type="text" id="city">
+        <input type="text" id="provincia">
+        <input type="text" id="country">
+        <button onclick="geocode()" id="invio-button">Cerca</button>
         <div class="days">
             <div class="day selected"></div>
             <div class="day"></div>
@@ -219,6 +223,7 @@
             </div>
         </div>
     </div>
+    <script src="scripts/geocoding.js"></script>
     <script src="./scripts/weather_code.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/fetch.js"></script>

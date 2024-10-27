@@ -12,3 +12,10 @@ DAYS.forEach((day, index) => {
         cetch();
     });
 });
+
+function geocode() {
+    let city = document.getElementById("city").value;
+    let provincia = document.getElementById("provincia").value;
+    let country = document.getElementById("country").value;
+    geocetch(city, provincia, country);
+}
