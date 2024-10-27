@@ -9,7 +9,7 @@ DAYS.forEach((day, index) => {
         day.classList.add('selected');
         daynum = DAYLIST[index];
         pageIndex = index;
-        cetch();
+        geocode();
     });
 });
 

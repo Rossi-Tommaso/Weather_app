@@ -13,12 +13,10 @@ function geocetch(city, provincia, country) {
         })
 
     function updateCoordinates(data) {
-        let button = document.getElementById("invio-button");
         let latitude = data.data[0].latitude;
         let longitude = data.data[0].longitude;
-        let outputRicerca = document.createElement(`div`);
+        let outputRicerca = document.getElementById(`output-ricerca`);
         outputRicerca.innerText = `Risultato della ricerca: ${data.data[0].label}`;
-        button.append(outputRicerca);
         cetch(latitude, longitude);
     }
 }
