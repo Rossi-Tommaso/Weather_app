@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-weight: bold;
 }
 
 body {
@@ -18,27 +17,55 @@ body {
 
 .container {
     width: 90%;
-    max-width: 1200px;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
+    max-width: 900px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+#results-container {
+    display: none;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, button {
+    width: 100%;
+    padding: 1.5%;
+    margin: 1% 0;
+    border: 1px solid #ddd;
+    border-radius: 7.5px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #4a90e2;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #ddd;
+    transition: background-color 0.5s ease;
 }
 
 .days {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 20%;
-    margin-bottom: 20px;
+    justify-content: space-around;
+    margin: 20px 0;
 }
 
 .day {
     flex: 1;
-    margin: 0 10px;
-    padding: 10px;
+    margin: 0 5px;
+    padding: 15px;
     text-align: center;
     background-color: #ffffff;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     cursor: pointer;
@@ -46,7 +73,7 @@ body {
 
 .day:hover {
     background-color: #d4e0f2;
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 }
 
 .selected {
@@ -56,61 +83,34 @@ body {
 
 .hours {
     display: grid;
-    grid-template-rows: repeat(25, 1fr);
-    overflow-y: scroll;
-    gap: 2%;
-    height: 75%;
-    padding: 0 3%;
+    grid-template-rows: repeat(24, auto);
+    gap: 8px;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 5px;
 }
 
 .hour {
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
+    padding: 15px;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
     align-items: center;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
 }
 
 .hour:hover {
-    background-color: #f0f8ff;
-    transform: scale(1.05);
+    background-color: #eef3f7;
 }
 
-.hour > div {
-    width: 100%;
-    height: 100%;
+.weathercode img {
+    width: 30px;
 }
 
-.time { 
-    display: flex;
-    align-items: center;
-}
-
-.temp {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.weathercode {
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.weathercode > img {
-    width: 20%;
-    margin-right: 5%;
-}
-
-input {
-    width: 20%;
-    margin-bottom: 0.5%;
-}
-
-button {
-    width: 20%;
-    margin-bottom: 1%;
+#output-ricerca {
+    margin-top: 15px;
 }

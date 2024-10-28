@@ -76,7 +76,7 @@ function cetch(latitude, longitude) {
             let night = wc[code].night.image;
             let icon;
             
-            if(data.hourly.time[i].slice(-5, -3) > 22 || data.hourly.time[i].slice(-5, -3) < 6)
+            if(data.hourly.time[i].slice(-5, -3) > 20 || data.hourly.time[i].slice(-5, -3) < 6)
                 icon = night;
             else
                 icon = day;

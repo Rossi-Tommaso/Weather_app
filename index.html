@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,225 +9,232 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/main.css">
 </head>
+
 <body>
     <div class="container">
-        <label for="city">Città:</label>
-        <input type="text" id="city">
-        <label for="provincia">Provincia:</label>
-        <input type="text" id="provincia">
-        <label for="city">Nazione:</label>
-        <input type="text" id="country">
-        <button onclick="geocode()">Cerca</button>
-        <div id="output-ricerca"></div>
-        <div class="days">
-            <div class="day selected"></div>
-            <div class="day"></div>
-            <div class="day"></div>
-            <div class="day"></div>
-            <div class="day"></div>
-            <div class="day"></div>
-            <div class="day"></div>
+        <div id="input-container">
+            <label for="city">Città:</label>
+            <input type="text" id="city">
+            <label for="provincia">Provincia:</label>
+            <input type="text" id="provincia">
+            <label for="country">Nazione:</label>
+            <input type="text" id="country">
+            <button onclick="handleSearch()" id="search-button">Cerca</button>
         </div>
-        <div class="hours">
-            <div class="hour">
-                <div>min:</div>
-                <div id="min" class="min"></div>
-                <div>max:</div>
-                <div id="max" class="max"></div>
-                <div></div>
-                <div></div>
+        <div id="results-container">
+            <button onclick="retrySelection()">Cambia città</button>
+            <div id="output-ricerca"></div>
+
+            <div class="days">
+                <div class="day selected"></div>
+                <div class="day"></div>
+                <div class="day"></div>
+                <div class="day"></div>
+                <div class="day"></div>
+                <div class="day"></div>
+                <div class="day"></div>
             </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
-            </div>
-            <div class="hour">
-                <div class="time"></div>
-                <div class="temp"></div>
-                <div class="apparent-temp"></div>
-                <div class="humidity"></div>
-                <div class="probability"></div>
-                <div class="weathercode"></div>
+            <div class="hours">
+                <div class="hour">
+                    <div>min:</div>
+                    <div id="min" class="min"></div>
+                    <div>max:</div>
+                    <div id="max" class="max"></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
+                <div class="hour">
+                    <div class="time"></div>
+                    <div class="temp"></div>
+                    <div class="apparent-temp"></div>
+                    <div class="humidity"></div>
+                    <div class="probability"></div>
+                    <div class="weathercode"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -235,4 +243,5 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/fetch.js"></script>
 </body>
+
 </html>
