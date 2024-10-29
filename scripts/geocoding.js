@@ -1,19 +1,3 @@
-function handleSearch() {
-    document.getElementById('input-container').style.display = 'none';
-    document.getElementById('results-container').style.display = 'block';
-    geocode(); 
-}
-
-function retrySelection() {
-    document.getElementById('input-container').style.display = 'block';
-    document.getElementById('results-container').style.display = 'none';
-
-    document.getElementById('city').value = '';
-    document.getElementById('provincia').value = '';
-    document.getElementById('country').value = '';
-    document.getElementById('output-ricerca').innerHTML = '';
-}
-
 function geocetch(city, provincia, country) {
     const LINK = `http://api.positionstack.com/v1/forward?access_key=262787dd3b28751cd5b9eddab4200e30&query=${city},${provincia},${country}`;
     

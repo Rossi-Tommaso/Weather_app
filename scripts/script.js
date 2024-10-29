@@ -13,6 +13,22 @@ DAYS.forEach((day, index) => {
     });
 });
 
+function handleSearch() {
+    document.getElementById('input-container').style.display = 'none';
+    document.getElementById('results-container').style.display = 'block';
+    geocode(); 
+}
+
+function retrySelection() {
+    document.getElementById('input-container').style.display = 'block';
+    document.getElementById('results-container').style.display = 'none';
+
+    document.getElementById('city').value = '';
+    document.getElementById('provincia').value = '';
+    document.getElementById('country').value = '';
+    document.getElementById('output-ricerca').innerHTML = '';
+}
+
 function geocode() {
     let city = document.getElementById("city").value;
     let provincia = document.getElementById("provincia").value;
